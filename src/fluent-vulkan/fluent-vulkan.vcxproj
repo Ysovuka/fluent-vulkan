@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClInclude Include="core\VulkanApplication.h" />
     <ClInclude Include="core\VulkanInstance.h" />
+    <ClInclude Include="fluent-vulkan.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

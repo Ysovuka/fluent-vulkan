@@ -7,10 +7,7 @@
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW\glfw3.h>
 
-#include <vulkan\vulkan.h>
-
-#include "core\VulkanInstance.h"
-#include "core\VulkanApplication.h"
+#include "fluent-vulkan.h"
 
 #ifdef NDEBUG
 const bool enableValidationLayers = false;

@@ -38,5 +38,8 @@
     <ClInclude Include="core\VulkanApplication.h">
       <Filter>Header Files\vulkan</Filter>
     </ClInclude>
+    <ClInclude Include="fluent-vulkan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
