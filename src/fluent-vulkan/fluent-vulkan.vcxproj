@@ -123,11 +123,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\VulkanApplication.cpp" />
+    <ClCompile Include="core\VulkanDebugger.cpp" />
     <ClCompile Include="core\VulkanInstance.cpp" />
     <ClCompile Include="program.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\VulkanApplication.h" />
+    <ClInclude Include="core\VulkanDebugger.h" />
     <ClInclude Include="core\VulkanInstance.h" />
     <ClInclude Include="fluent-vulkan.h" />
   </ItemGroup>

@@ -1,5 +1,6 @@
 #include "VulkanInstance.h"
 #include "VulkanApplication.h"
+#include "VulkanDebugger.h"
 
 VulkanInstance::VulkanInstance()
 {
@@ -23,10 +24,14 @@ VulkanInstance::~VulkanInstance()
 
 void VulkanInstance::dispose()
 {
-
-	if (_application != nullptr)
+	if (this->_debugger != nullptr)
 	{
-		delete _application;
+		delete this->_debugger;
+	}
+
+	if (this->_application != nullptr)
+	{
+		delete this->_application;
 	}
 
 	vkDestroyInstance(this->_instance, nullptr);
@@ -81,6 +86,8 @@ VulkanInstance& VulkanInstance::finalize()
 	{
 		throw std::runtime_error("VulkanInstance: 'VkInstance' failed to be created.");
 	}
+
+	return *this;
 }
 
 VulkanApplication* VulkanInstance::application()
@@ -92,4 +99,15 @@ VulkanApplication* VulkanInstance::application()
 	}
 
 	return this->_application;
+}
+
+VulkanDebugger* VulkanInstance::debugger()
+{
+	if (this->_debugger == nullptr)
+	{
+		this->_debugger = new VulkanDebugger();
+		this->_debugger->attach(this);
+	}
+
+	return this->_debugger;
 }

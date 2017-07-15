@@ -30,6 +30,9 @@
     <ClCompile Include="core\VulkanApplication.cpp">
       <Filter>Source Files\vulkan</Filter>
     </ClCompile>
+    <ClCompile Include="core\VulkanDebugger.cpp">
+      <Filter>Source Files\vulkan</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\VulkanInstance.h">
@@ -40,6 +43,9 @@
     </ClInclude>
     <ClInclude Include="fluent-vulkan.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\VulkanDebugger.h">
+      <Filter>Header Files\vulkan</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

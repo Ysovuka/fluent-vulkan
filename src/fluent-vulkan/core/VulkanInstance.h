@@ -8,6 +8,7 @@
 #include <vulkan\vulkan.h>
 
 class VulkanApplication;
+class VulkanDebugger;
 
 class VulkanInstance
 {
@@ -16,7 +17,7 @@ private:
 	VkInstanceCreateInfo _instanceInfo;
 
 	VulkanApplication* _application;
-
+	VulkanDebugger* _debugger;
 public:
 	VulkanInstance();
 	~VulkanInstance();
@@ -30,6 +31,7 @@ public:
 	void dispose();
 
 	VulkanApplication* application();
+	VulkanDebugger* debugger();
 };
 
 #endif

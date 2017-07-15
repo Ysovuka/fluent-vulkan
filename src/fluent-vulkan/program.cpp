@@ -40,6 +40,21 @@ std::vector<const char*> getRequiredExtensions()
 	return extensions;
 }
 
+static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(
+	VkDebugReportFlagsEXT flags,
+	VkDebugReportObjectTypeEXT objType,
+	uint64_t obj,
+	size_t location,
+	int32_t code,
+	const char* layerPrefix,
+	const char* msg,
+	void* userData) {
+
+	std::cerr << "validation layer: " << msg << std::endl;
+
+	return VK_FALSE;
+};
+
 
 int main(int argc, char *argv[])
 {
@@ -51,7 +66,13 @@ int main(int argc, char *argv[])
 			.withVersion(VK_MAKE_VERSION(1, 0, 0))
 			.withApiVersion(VK_API_VERSION_1_0)
 			.instance()
+		->debugger()
+			->withCallback(debugCallback)
+			.withFlags(VK_DEBUG_REPORT_ERROR_BIT_EXT | VK_DEBUG_REPORT_WARNING_BIT_EXT)
+			.instance()
 		->withExtensions(getRequiredExtensions())
 		.withValidationLayers(validationLayers)
 		.finalize();
+
+	system("pause");
 }
