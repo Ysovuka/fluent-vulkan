@@ -9,6 +9,7 @@
 
 class VulkanApplication;
 class VulkanDebugger;
+class VulkanPhysicalDevice;
 
 class VulkanInstance
 {
@@ -18,6 +19,7 @@ private:
 
 	VulkanApplication* _application;
 	VulkanDebugger* _debugger;
+	VulkanPhysicalDevice* _physicalDevice;
 public:
 	VulkanInstance();
 	~VulkanInstance();
@@ -32,6 +34,7 @@ public:
 
 	VulkanApplication* application();
 	VulkanDebugger* debugger();
+	VulkanPhysicalDevice* physicalDevice();
 };
 
 #endif

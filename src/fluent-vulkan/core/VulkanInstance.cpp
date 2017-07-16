@@ -1,6 +1,7 @@
 #include "VulkanInstance.h"
 #include "VulkanApplication.h"
 #include "VulkanDebugger.h"
+#include "VulkanPhysicalDevice.h"
 
 VulkanInstance::VulkanInstance()
 {
@@ -24,6 +25,11 @@ VulkanInstance::~VulkanInstance()
 
 void VulkanInstance::dispose()
 {
+	if (this->_physicalDevice != nullptr)
+	{
+		delete this->_physicalDevice;
+	}
+
 	if (this->_debugger != nullptr)
 	{
 		delete this->_debugger;
@@ -110,4 +116,15 @@ VulkanDebugger* VulkanInstance::debugger()
 	}
 
 	return this->_debugger;
+}
+
+VulkanPhysicalDevice* VulkanInstance::physicalDevice()
+{
+	if (this->_physicalDevice == nullptr)
+	{
+		this->_physicalDevice = new VulkanPhysicalDevice();
+		this->_physicalDevice->attach(this);
+	}
+
+	return this->_physicalDevice;
 }

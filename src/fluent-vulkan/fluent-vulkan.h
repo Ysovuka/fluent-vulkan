@@ -8,5 +8,6 @@
 #include "core\VulkanInstance.h"
 #include "core\VulkanApplication.h"
 #include "core\VulkanDebugger.h"
+#include "core\VulkanPhysicalDevice.h"
 
 #endif

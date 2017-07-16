@@ -33,6 +33,9 @@
     <ClCompile Include="core\VulkanDebugger.cpp">
       <Filter>Source Files\vulkan</Filter>
     </ClCompile>
+    <ClCompile Include="core\VulkanPhysicalDevice.cpp">
+      <Filter>Source Files\vulkan</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\VulkanInstance.h">
@@ -45,6 +48,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="core\VulkanDebugger.h">
+      <Filter>Header Files\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="core\VulkanPhysicalDevice.h">
+      <Filter>Header Files\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="core\VulkanTypeDefs.h">
       <Filter>Header Files\vulkan</Filter>
     </ClInclude>
   </ItemGroup>

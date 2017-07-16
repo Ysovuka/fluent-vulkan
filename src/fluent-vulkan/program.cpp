@@ -19,7 +19,6 @@ const std::vector<const char*> validationLayers = {
 	"VK_LAYER_LUNARG_standard_validation"
 };
 
-
 std::vector<const char*> getRequiredExtensions()
 {
 	std::vector<const char*> extensions;
@@ -56,6 +55,27 @@ static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(
 };
 
 
+bool isDeviceSuitable(VkPhysicalDevice device) {
+	VkPhysicalDeviceProperties deviceProperties;
+	VkPhysicalDeviceFeatures deviceFeatures;
+	vkGetPhysicalDeviceProperties(device, &deviceProperties);
+	vkGetPhysicalDeviceFeatures(device, &deviceFeatures);
+
+	return deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU &&
+		deviceFeatures.geometryShader;
+}
+
+VkPhysicalDevice findSuitableDevice(std::vector<VkPhysicalDevice> devices)
+{
+	for (const auto& device : devices) {
+		if (isDeviceSuitable(device)) {
+			return device;
+		}
+	}
+
+	throw std::runtime_error("Unable to find suitable GPU device.");
+}
+
 int main(int argc, char *argv[])
 {
 	VulkanInstance instance;
@@ -72,7 +92,9 @@ int main(int argc, char *argv[])
 			.instance()
 		->withExtensions(getRequiredExtensions())
 		.withValidationLayers(validationLayers)
-		.finalize();
+		.finalize()
+		.physicalDevice()
+			->select(findSuitableDevice);
 
 	system("pause");
 }
