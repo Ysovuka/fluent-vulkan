@@ -2,6 +2,8 @@
 #include "VulkanApplication.h"
 #include "VulkanDebugger.h"
 #include "VulkanPhysicalDevice.h"
+#include "VulkanLogicalDevice.h"
+#include "VulkanSurface.h"
 
 VulkanInstance::VulkanInstance()
 {
@@ -25,6 +27,16 @@ VulkanInstance::~VulkanInstance()
 
 void VulkanInstance::dispose()
 {
+	if (this->_surface != nullptr)
+	{
+		delete this->_surface;
+	}
+
+	if (this->_logicalDevice != nullptr)
+	{
+		delete this->_logicalDevice;
+	}
+
 	if (this->_physicalDevice != nullptr)
 	{
 		delete this->_physicalDevice;
@@ -96,7 +108,7 @@ VulkanInstance& VulkanInstance::finalize()
 	return *this;
 }
 
-VulkanApplication* VulkanInstance::application()
+VulkanApplication& VulkanInstance::application()
 {
 	if (this->_application == nullptr)
 	{
@@ -104,10 +116,10 @@ VulkanApplication* VulkanInstance::application()
 		this->_application->attach(this);
 	}
 
-	return this->_application;
+	return *this->_application;
 }
 
-VulkanDebugger* VulkanInstance::debugger()
+VulkanDebugger& VulkanInstance::debugger()
 {
 	if (this->_debugger == nullptr)
 	{
@@ -115,10 +127,10 @@ VulkanDebugger* VulkanInstance::debugger()
 		this->_debugger->attach(this);
 	}
 
-	return this->_debugger;
+	return *this->_debugger;
 }
 
-VulkanPhysicalDevice* VulkanInstance::physicalDevice()
+VulkanPhysicalDevice& VulkanInstance::physicalDevice()
 {
 	if (this->_physicalDevice == nullptr)
 	{
@@ -126,5 +138,27 @@ VulkanPhysicalDevice* VulkanInstance::physicalDevice()
 		this->_physicalDevice->attach(this);
 	}
 
-	return this->_physicalDevice;
+	return *this->_physicalDevice;
+}
+
+VulkanLogicalDevice& VulkanInstance::logicalDevice()
+{
+	if (this->_logicalDevice == nullptr)
+	{
+		this->_logicalDevice = new VulkanLogicalDevice();
+		this->_logicalDevice->attach(this);
+	}
+
+	return *this->_logicalDevice;
+}
+
+VulkanSurface& VulkanInstance::surface()
+{
+	if (this->_surface == nullptr)
+	{
+		this->_surface = new VulkanSurface();
+		this->_surface->attach(this);
+	}
+
+	return *this->_surface;
 }

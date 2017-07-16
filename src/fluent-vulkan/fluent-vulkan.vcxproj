@@ -124,17 +124,27 @@
   <ItemGroup>
     <ClCompile Include="core\VulkanApplication.cpp" />
     <ClCompile Include="core\VulkanDebugger.cpp" />
+    <ClCompile Include="core\VulkanDeviceFeatures.cpp" />
+    <ClCompile Include="core\VulkanDeviceQueueFamily.cpp" />
     <ClCompile Include="core\VulkanInstance.cpp" />
+    <ClCompile Include="core\VulkanLogicalDevice.cpp" />
     <ClCompile Include="core\VulkanPhysicalDevice.cpp" />
+    <ClCompile Include="core\VulkanSurface.cpp" />
+    <ClCompile Include="glfw\GlfwEngine.cpp" />
     <ClCompile Include="program.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\VulkanApplication.h" />
     <ClInclude Include="core\VulkanDebugger.h" />
+    <ClInclude Include="core\VulkanDeviceFeatures.h" />
+    <ClInclude Include="core\VulkanDeviceQueueFamily.h" />
     <ClInclude Include="core\VulkanInstance.h" />
+    <ClInclude Include="core\VulkanLogicalDevice.h" />
     <ClInclude Include="core\VulkanPhysicalDevice.h" />
+    <ClInclude Include="core\VulkanSurface.h" />
     <ClInclude Include="core\VulkanTypeDefs.h" />
     <ClInclude Include="fluent-vulkan.h" />
+    <ClInclude Include="glfw\GlfwEngine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

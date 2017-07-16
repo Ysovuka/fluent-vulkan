@@ -8,6 +8,7 @@
 #include "VulkanTypeDefs.h"
 
 class VulkanInstance;
+class VulkanLogicalDevice;
 
 class VulkanPhysicalDevice
 {
@@ -23,7 +24,8 @@ public:
 	VulkanPhysicalDevice& select(VulkanSelectPhysicalDevice);
 
 	VulkanPhysicalDevice& attach(VulkanInstance*);
-	VulkanInstance* instance();
+	VulkanInstance& instance();
+	VulkanLogicalDevice& logicalDevice();
 };
 
 #endif

@@ -17,7 +17,7 @@ public:
 	~VulkanApplication();
 
 	VulkanApplication& attach(VulkanInstance*);
-	VulkanInstance* instance();
+	VulkanInstance& instance();
 
 	VulkanApplication& withName(const char*);
 	VulkanApplication& withVersion(uint32_t);

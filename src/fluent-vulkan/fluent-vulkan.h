@@ -9,5 +9,8 @@
 #include "core\VulkanApplication.h"
 #include "core\VulkanDebugger.h"
 #include "core\VulkanPhysicalDevice.h"
+#include "core\VulkanLogicalDevice.h"
+#include "core\VulkanDeviceFeatures.h"
+#include "core\VulkanSurface.h"
 
 #endif

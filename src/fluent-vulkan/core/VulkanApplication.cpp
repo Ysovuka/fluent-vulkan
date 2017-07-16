@@ -47,7 +47,7 @@ VulkanApplication& VulkanApplication::attach(VulkanInstance* instance)
 	return *this;
 }
 
-VulkanInstance* VulkanApplication::instance()
+VulkanInstance& VulkanApplication::instance()
 {
-	return this->_instance;
+	return *this->_instance;
 }

@@ -1,5 +1,6 @@
 #include "VulkanPhysicalDevice.h"
 #include "VulkanInstance.h"
+#include "VulkanLogicalDevice.h"
 
 VulkanPhysicalDevice::VulkanPhysicalDevice()
 {
@@ -22,9 +23,14 @@ VulkanPhysicalDevice& VulkanPhysicalDevice::attach(VulkanInstance* instance)
 	return *this;
 }
 
-VulkanInstance* VulkanPhysicalDevice::instance()
+VulkanInstance& VulkanPhysicalDevice::instance()
 {
-	return this->_instance;
+	return *this->_instance;
+}
+
+VulkanLogicalDevice& VulkanPhysicalDevice::logicalDevice()
+{
+	return this->_instance->logicalDevice();
 }
 
 VulkanPhysicalDevice& VulkanPhysicalDevice::select(VulkanSelectPhysicalDevice fnSelectDevice)

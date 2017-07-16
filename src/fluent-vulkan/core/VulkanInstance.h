@@ -10,6 +10,8 @@
 class VulkanApplication;
 class VulkanDebugger;
 class VulkanPhysicalDevice;
+class VulkanLogicalDevice;
+class VulkanSurface;
 
 class VulkanInstance
 {
@@ -20,6 +22,8 @@ private:
 	VulkanApplication* _application;
 	VulkanDebugger* _debugger;
 	VulkanPhysicalDevice* _physicalDevice;
+	VulkanLogicalDevice* _logicalDevice;
+	VulkanSurface* _surface;
 public:
 	VulkanInstance();
 	~VulkanInstance();
@@ -32,9 +36,11 @@ public:
 	VulkanInstance& finalize();
 	void dispose();
 
-	VulkanApplication* application();
-	VulkanDebugger* debugger();
-	VulkanPhysicalDevice* physicalDevice();
+	VulkanApplication& application();
+	VulkanDebugger& debugger();
+	VulkanPhysicalDevice& physicalDevice();
+	VulkanLogicalDevice& logicalDevice();
+	VulkanSurface& surface();
 };
 
 #endif

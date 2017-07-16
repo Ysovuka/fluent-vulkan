@@ -19,6 +19,12 @@
     <Filter Include="Source Files\vulkan">
       <UniqueIdentifier>{24651808-0246-451a-a7ea-9269a0eabc25}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\glfw">
+      <UniqueIdentifier>{487b92bc-f5dd-4211-beae-57558aecb634}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\glfw">
+      <UniqueIdentifier>{43e4d180-4854-4de7-8d25-0b458be755b4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="program.cpp">
@@ -35,6 +41,21 @@
     </ClCompile>
     <ClCompile Include="core\VulkanPhysicalDevice.cpp">
       <Filter>Source Files\vulkan</Filter>
+    </ClCompile>
+    <ClCompile Include="core\VulkanLogicalDevice.cpp">
+      <Filter>Source Files\vulkan</Filter>
+    </ClCompile>
+    <ClCompile Include="core\VulkanDeviceFeatures.cpp">
+      <Filter>Source Files\vulkan</Filter>
+    </ClCompile>
+    <ClCompile Include="core\VulkanDeviceQueueFamily.cpp">
+      <Filter>Source Files\vulkan</Filter>
+    </ClCompile>
+    <ClCompile Include="core\VulkanSurface.cpp">
+      <Filter>Source Files\vulkan</Filter>
+    </ClCompile>
+    <ClCompile Include="glfw\GlfwEngine.cpp">
+      <Filter>Source Files\glfw</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -55,6 +76,21 @@
     </ClInclude>
     <ClInclude Include="core\VulkanTypeDefs.h">
       <Filter>Header Files\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="core\VulkanLogicalDevice.h">
+      <Filter>Header Files\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="core\VulkanDeviceFeatures.h">
+      <Filter>Header Files\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="core\VulkanDeviceQueueFamily.h">
+      <Filter>Header Files\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="core\VulkanSurface.h">
+      <Filter>Header Files\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="glfw\GlfwEngine.h">
+      <Filter>Header Files\glfw</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -72,7 +72,7 @@ VulkanDebugger& VulkanDebugger::attach(VulkanInstance* instance)
 	return *this;
 }
 
-VulkanInstance* VulkanDebugger::instance()
+VulkanInstance& VulkanDebugger::instance()
 {
-	return this->_instance;
+	return *this->_instance;
 }

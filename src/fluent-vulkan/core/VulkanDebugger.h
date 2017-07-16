@@ -20,7 +20,7 @@ public:
 	~VulkanDebugger();
 
 	VulkanDebugger& attach(VulkanInstance*);
-	VulkanInstance* instance();
+	VulkanInstance& instance();
 
 	void dispose();
 	VulkanDebugger& withAllocationCallbacks(const VkAllocationCallbacks*);
