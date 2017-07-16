@@ -78,15 +78,15 @@ VkPhysicalDevice findSuitableDevice(std::vector<VkPhysicalDevice> devices)
 }
 
 
-VkBool32 devicePresentationSupport(VulkanInstance instance, int queueFamilyIndex)
+VkBool32 devicePresentationSupport(VulkanInstance* instance, int queueFamilyIndex)
 {
 	VkBool32 presentationSupport = false;
-	vkGetPhysicalDeviceSurfaceSupportKHR((instance.physicalDevice())(), queueFamilyIndex, (instance.surface())(), &presentationSupport);
+	vkGetPhysicalDeviceSurfaceSupportKHR((instance->physicalDevice())(), queueFamilyIndex, (instance->surface())(), &presentationSupport);
 
 	return presentationSupport;
 }
 
-std::map<const std::string, int> deviceQueueFamilies(VulkanInstance instance, std::vector<VkQueueFamilyProperties> deviceQueueFamilyProperties)
+const std::map<const std::string, int> deviceQueueFamilies(VulkanInstance* instance, std::vector<VkQueueFamilyProperties> deviceQueueFamilyProperties)
 {
 	std::map<const std::string, int> returnValue;
 
@@ -121,13 +121,13 @@ std::map<const std::string, int> deviceQueueFamilies(VulkanInstance instance, st
 	return returnValue;
 }
 
-const std::map<const std::string, int> findQueueFamilies(VulkanInstance instance)
+const std::map<const std::string, int> findQueueFamilies(VulkanInstance* instance)
 {
 	uint32_t queueFamilyCount = 0;
-	vkGetPhysicalDeviceQueueFamilyProperties((instance.physicalDevice())(), &queueFamilyCount, nullptr);
+	vkGetPhysicalDeviceQueueFamilyProperties((instance->physicalDevice())(), &queueFamilyCount, nullptr);
 
 	std::vector<VkQueueFamilyProperties> queueFamilies(queueFamilyCount);
-	vkGetPhysicalDeviceQueueFamilyProperties((instance.physicalDevice())(), &queueFamilyCount, queueFamilies.data());
+	vkGetPhysicalDeviceQueueFamilyProperties((instance->physicalDevice())(), &queueFamilyCount, queueFamilies.data());
 
 	return deviceQueueFamilies(instance, queueFamilies);
 }

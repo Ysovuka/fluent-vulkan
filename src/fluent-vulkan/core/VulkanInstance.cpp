@@ -27,11 +27,6 @@ VulkanInstance::~VulkanInstance()
 
 void VulkanInstance::dispose()
 {
-	if (this->_surface != nullptr)
-	{
-		delete this->_surface;
-	}
-
 	if (this->_logicalDevice != nullptr)
 	{
 		delete this->_logicalDevice;
@@ -40,6 +35,11 @@ void VulkanInstance::dispose()
 	if (this->_physicalDevice != nullptr)
 	{
 		delete this->_physicalDevice;
+	}
+
+	if (this->_surface != nullptr)
+	{
+		delete this->_surface;
 	}
 
 	if (this->_debugger != nullptr)

@@ -48,7 +48,8 @@ VulkanLogicalDevice& VulkanLogicalDevice::withQueueFamilies(VulkanFindQueueFamil
 {
 	this->_deviceQueueFamilies.clear();
 
-	for (auto queueFamily : fnFind(*this->_instance))
+	float priority = 1.0;
+	for (auto queueFamily : fnFind(this->_instance))
 	{
 		std::map<std::string, VulkanDeviceQueueFamily*>::iterator it;
 		it = this->_deviceQueueFamilies.find(queueFamily.first);
@@ -57,6 +58,9 @@ VulkanLogicalDevice& VulkanLogicalDevice::withQueueFamilies(VulkanFindQueueFamil
 		{
 			VulkanDeviceQueueFamily* deviceQueueFamily = new VulkanDeviceQueueFamily();
 			deviceQueueFamily->attach(*this);
+			deviceQueueFamily->withFamilyIndex(queueFamily.second);
+			deviceQueueFamily->withCount(1);
+			deviceQueueFamily->withPriority(priority);
 
 			this->_deviceQueueFamilies.insert(std::pair<std::string, VulkanDeviceQueueFamily*>(queueFamily.first, deviceQueueFamily));
 		}
@@ -133,7 +137,7 @@ VulkanLogicalDevice& VulkanLogicalDevice::finalize()
 	for (const auto& queueFamily : this->_deviceQueueFamilies)
 	{
 		VkQueue queue;
-		vkGetDeviceQueue(this->_logicalDevice, queueFamily.second->queueFamilyIndex, 0, &queue);
+		vkGetDeviceQueue(this->_logicalDevice, queueFamily.second->index(), 0, &queue);
 		this->_deviceQueues.insert(std::pair<std::string, VkQueue>(queueFamily.first, queue));
 	}
 
