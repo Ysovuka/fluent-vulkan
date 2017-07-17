@@ -4,6 +4,7 @@
 #include "VulkanPhysicalDevice.h"
 #include "VulkanLogicalDevice.h"
 #include "VulkanSurface.h"
+#include "VulkanSwapchain.h"
 
 VulkanInstance::VulkanInstance()
 {
@@ -27,6 +28,11 @@ VulkanInstance::~VulkanInstance()
 
 void VulkanInstance::dispose()
 {
+	if (this->_swapchain != nullptr)
+	{
+		delete this->_swapchain;
+	}
+
 	if (this->_logicalDevice != nullptr)
 	{
 		delete this->_logicalDevice;
@@ -161,4 +167,15 @@ VulkanSurface& VulkanInstance::surface()
 	}
 
 	return *this->_surface;
+}
+
+VulkanSwapchain& VulkanInstance::swapchain()
+{
+	if (this->_swapchain == nullptr)
+	{
+		this->_swapchain = new VulkanSwapchain();
+		this->_swapchain->attach(this);
+	}
+
+	return *this->_swapchain;
 }

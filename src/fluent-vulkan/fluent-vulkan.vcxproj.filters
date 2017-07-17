@@ -57,6 +57,9 @@
     <ClCompile Include="glfw\GlfwEngine.cpp">
       <Filter>Source Files\glfw</Filter>
     </ClCompile>
+    <ClCompile Include="core\VulkanSwapchain.cpp">
+      <Filter>Source Files\vulkan</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\VulkanInstance.h">
@@ -91,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="glfw\GlfwEngine.h">
       <Filter>Header Files\glfw</Filter>
+    </ClInclude>
+    <ClInclude Include="core\VulkanSwapchain.h">
+      <Filter>Header Files\vulkan</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

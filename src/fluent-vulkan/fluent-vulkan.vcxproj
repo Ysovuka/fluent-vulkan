@@ -130,6 +130,7 @@
     <ClCompile Include="core\VulkanLogicalDevice.cpp" />
     <ClCompile Include="core\VulkanPhysicalDevice.cpp" />
     <ClCompile Include="core\VulkanSurface.cpp" />
+    <ClCompile Include="core\VulkanSwapchain.cpp" />
     <ClCompile Include="glfw\GlfwEngine.cpp" />
     <ClCompile Include="program.cpp" />
   </ItemGroup>
@@ -142,6 +143,7 @@
     <ClInclude Include="core\VulkanLogicalDevice.h" />
     <ClInclude Include="core\VulkanPhysicalDevice.h" />
     <ClInclude Include="core\VulkanSurface.h" />
+    <ClInclude Include="core\VulkanSwapchain.h" />
     <ClInclude Include="core\VulkanTypeDefs.h" />
     <ClInclude Include="fluent-vulkan.h" />
     <ClInclude Include="glfw\GlfwEngine.h" />

@@ -12,6 +12,7 @@ class VulkanDebugger;
 class VulkanPhysicalDevice;
 class VulkanLogicalDevice;
 class VulkanSurface;
+class VulkanSwapchain;
 
 class VulkanInstance
 {
@@ -24,6 +25,7 @@ private:
 	VulkanPhysicalDevice* _physicalDevice;
 	VulkanLogicalDevice* _logicalDevice;
 	VulkanSurface* _surface;
+	VulkanSwapchain* _swapchain;
 public:
 	VulkanInstance();
 	~VulkanInstance();
@@ -41,6 +43,7 @@ public:
 	VulkanPhysicalDevice& physicalDevice();
 	VulkanLogicalDevice& logicalDevice();
 	VulkanSurface& surface();
+	VulkanSwapchain& swapchain();
 };
 
 #endif

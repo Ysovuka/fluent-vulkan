@@ -12,5 +12,6 @@
 #include "core\VulkanLogicalDevice.h"
 #include "core\VulkanDeviceFeatures.h"
 #include "core\VulkanSurface.h"
+#include "core\VulkanSwapchain.h"
 
 #endif
